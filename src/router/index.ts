@@ -4,7 +4,7 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: () => import('../views/shared/LoginView.vue')
+        component: () => import('@/views/shared/LoginView.vue')
     }
 ]
 
