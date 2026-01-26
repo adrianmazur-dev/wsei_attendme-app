@@ -1,3 +1,5 @@
+import { notify } from '@/utils/toast';
+
 export abstract class BaseError extends Error {
     public details: Record<string, any>;
     public readonly timestamp: string;
@@ -11,6 +13,15 @@ export abstract class BaseError extends Error {
         Object.setPrototypeOf(this, new.target.prototype);
     }
 
+    public dispatchToast(): void {
+        notify.error(this.message, this.name);
+    }
+
+    public log(context?: string): void {
+        const errorLog = this.toObject(context);
+        console.error(`[${errorLog.name}] ${errorLog.message}`, errorLog);
+    }
+
     public toObject(context?: string) {
         return {
             name: this.name,
@@ -20,11 +31,6 @@ export abstract class BaseError extends Error {
             details: this.details,
             ...this.getExtraInfo()
         };
-    }
-
-    public log(context?: string): void {
-        const errorLog = this.toObject(context);
-        console.error(`[${errorLog.name}] ${errorLog.message}`, errorLog);
     }
 
     protected getExtraInfo(): Record<string, any> {

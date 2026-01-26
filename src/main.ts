@@ -1,39 +1,23 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from 'vue';
+import App from '@/App.vue';
+import router from '@/router';
+import pinia from '@/plugins/pinia';
+import { setupPrimeVue } from '@/plugins/primevue';
+import { setupGlobalErrors } from '@/plugins/error-handler';
 
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
-
-import App from '@/App.vue'
-import router from '@/router/index.ts'
-import { BaseError } from './types/errors/base-error';
+import './assets/style.css';
 
 async function initApp() {
-    const app = createApp(App)
-    const pinia = createPinia()
+    const app = createApp(App);
 
-    pinia.use(piniaPluginPersistedstate)
+    app.use(pinia);
+    app.use(router);
 
-    pinia.use(({ store }) => {
-        store.$onAction(({ name, onError }) => {
-            onError((error) => {
-                if (error instanceof BaseError) {
-                    error.log();
-                }
-            });
-        });
-    });
+    setupPrimeVue(app);
 
-    window.addEventListener('unhandledrejection', (event) => {
-        if (event.reason instanceof BaseError) {
-            event.reason.log();
-            event.preventDefault();
-        }
-    });
+    setupGlobalErrors();
 
-    app.use(pinia)
-    app.use(router)
-
-    app.mount('#app')
+    app.mount('#app');
 }
 
 initApp();
