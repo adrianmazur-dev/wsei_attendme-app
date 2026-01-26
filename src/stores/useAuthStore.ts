@@ -5,6 +5,7 @@ import { attendmeClient } from '@/api'
 
 export const useAuthStore = defineStore('auth', () => {
     const token = ref<string | null>(null)
+    const expires = ref<number | null>(null)
 
 
     async function userLogin(loginName: string, password: string): Promise<void> {
@@ -15,11 +16,22 @@ export const useAuthStore = defineStore('auth', () => {
         )
 
         token.value = data.token || null
+        if (data.expires) {
+            expires.value = new Date(data.expires).getTime()
+        }
     }
 
+    const isTokenExpired = (): boolean => {
+        if (!expires.value) return false;
+        return Date.now() >= expires.value;
+    };
 
     return {
         token,
-        userLogin
+        expires,
+        isTokenExpired,
+        userLogin,
     }
+}, {
+    persist: true,
 })

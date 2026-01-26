@@ -1,3 +1,4 @@
+import { useAuthStore } from '@/stores/useAuthStore';
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
@@ -5,11 +6,16 @@ const routes = [
         path: '/login',
         name: 'login',
         component: () => import('@/views/shared/LoginView.vue')
+    },
+    {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import('@/views/student/StudentDashboardView.vue')
     }
 ]
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(),
     routes: routes
 })
 
