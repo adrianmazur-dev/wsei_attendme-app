@@ -13,11 +13,14 @@ const loginName = ref('');
 const password = ref('');
 
 const handleLogin = async () => {
-  try {
-    await authStore.userLogin(loginName.value, password.value);
-    notify.success('Logged in successfully');
-    router.push('dashboard');
-  } catch (error) { }
+  if (!loginName.value || !password.value) {
+    notify.error('Please enter both username and password');
+    return;
+  }
+  
+  await authStore.userLogin(loginName.value, password.value);
+  notify.success('Logged in successfully');
+  router.push('dashboard');
 };
 </script>
 

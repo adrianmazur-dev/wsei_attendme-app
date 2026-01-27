@@ -21,15 +21,15 @@ export const useAuthStore = defineStore('auth', () => {
         }
     }
 
-    const isTokenExpired = (): boolean => {
-        if (!expires.value) return false;
-        return Date.now() >= expires.value;
+    const isAuthenticated = (): boolean => {
+        if (!token.value || !expires.value) return false;
+        return Date.now() < expires.value;
     };
 
     return {
         token,
         expires,
-        isTokenExpired,
+        isAuthenticated,
         userLogin,
     }
 }, {

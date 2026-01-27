@@ -1,10 +1,11 @@
-import { baseUrlMiddleware, errorMiddleware, loggingMiddleware } from '@/api/shared/middleware'
+import { baseUrlMiddleware, errorMiddleware, loggingMiddleware, jwtMiddleware } from '@/api/shared/middleware'
 import createClient from 'openapi-fetch'
 import type { Client, ClientOptions } from 'openapi-fetch';
 import type { MediaType } from 'openapi-typescript-helpers';
 
 interface ExtendedClientOptions extends ClientOptions {
     getBaseUrl: () => string;
+    getToken?: () => string | null
 }
 
 export class ClientBase<T extends {}> {
@@ -14,6 +15,9 @@ export class ClientBase<T extends {}> {
         this.api = createClient<T>(options);
 
         this.api.use(baseUrlMiddleware(options.getBaseUrl));
+        if (options.getToken) {
+            this.api.use(jwtMiddleware(options.getToken));
+        }
         this.api.use(loggingMiddleware);
         this.api.use(errorMiddleware);
 

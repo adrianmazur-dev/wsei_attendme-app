@@ -46,3 +46,13 @@ export const baseUrlMiddleware = (getBaseUrl: () => string): Middleware => ({
         return new Request(finalUrl, request);
     },
 })
+
+export const jwtMiddleware = (getToken: () => string | null): Middleware => ({
+    onRequest: ({ request }) => {
+        const token = getToken();
+        if (token) {
+            request.headers.set('Authorization', `Bearer ${token}`);
+        }
+        return request;
+    },
+})
