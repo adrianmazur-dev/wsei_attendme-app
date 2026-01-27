@@ -1,43 +1,48 @@
-import { baseUrlMiddleware, errorMiddleware, loggingMiddleware, jwtMiddleware } from '@/api/shared/middleware'
+import {
+    baseUrlMiddleware,
+    errorMiddleware,
+    loggingMiddleware,
+    jwtMiddleware,
+} from '@/backend/shared/middleware'
 import createClient from 'openapi-fetch'
-import type { Client, ClientOptions } from 'openapi-fetch';
-import type { MediaType } from 'openapi-typescript-helpers';
+import type { Client, ClientOptions } from 'openapi-fetch'
+import type { MediaType } from 'openapi-typescript-helpers'
 
 interface ExtendedClientOptions extends ClientOptions {
-    getBaseUrl: () => string;
+    getBaseUrl: () => string
     getToken?: () => string | null
 }
 
-export class ClientBase<T extends {}> {
-    private api: Client<T, MediaType>;
+export class ClientBase<T extends object> {
+    private api: Client<T, MediaType>
 
     constructor(options: ExtendedClientOptions) {
-        this.api = createClient<T>(options);
+        this.api = createClient<T>(options)
 
-        this.api.use(baseUrlMiddleware(options.getBaseUrl));
+        this.api.use(baseUrlMiddleware(options.getBaseUrl))
         if (options.getToken) {
-            this.api.use(jwtMiddleware(options.getToken));
+            this.api.use(jwtMiddleware(options.getToken))
         }
-        this.api.use(loggingMiddleware);
-        this.api.use(errorMiddleware);
+        this.api.use(loggingMiddleware)
+        this.api.use(errorMiddleware)
 
-        this.GET = this.api.GET;
-        this.POST = this.api.POST;
-        this.PUT = this.api.PUT;
-        this.DELETE = this.api.DELETE;
-        this.PATCH = this.api.PATCH;
-        this.HEAD = this.api.HEAD;
+        this.GET = this.api.GET
+        this.POST = this.api.POST
+        this.PUT = this.api.PUT
+        this.DELETE = this.api.DELETE
+        this.PATCH = this.api.PATCH
+        this.HEAD = this.api.HEAD
     }
 
-    public GET: Client<T, MediaType>["GET"];
-    public POST: Client<T, MediaType>["POST"];
-    public PUT: Client<T, MediaType>["PUT"];
-    public DELETE: Client<T, MediaType>["DELETE"];
-    public PATCH: Client<T, MediaType>["PATCH"];
-    public HEAD: Client<T, MediaType>["HEAD"];
+    public GET: Client<T, MediaType>['GET']
+    public POST: Client<T, MediaType>['POST']
+    public PUT: Client<T, MediaType>['PUT']
+    public DELETE: Client<T, MediaType>['DELETE']
+    public PATCH: Client<T, MediaType>['PATCH']
+    public HEAD: Client<T, MediaType>['HEAD']
 
-    public async send<T>(request: Promise<{ data?: T; response: Response; error?: any }>) {
-        const { data, response } = await request;
-        return { data: data as T, response };
+    public async send<T>(request: Promise<{ data?: T; response: Response; error?: unknown }>) {
+        const { data, response } = await request
+        return { data: data as T, response }
     }
 }

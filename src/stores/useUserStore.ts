@@ -1,31 +1,31 @@
-import { defineStore } from 'pinia';
-import { attendmeClient } from '@/backend';
-import { ref, computed } from 'vue';
-import { type AttendmeSchemas } from '@/backend';
-import { UserRole } from '@/types/enums';
+import { defineStore } from 'pinia'
+import { attendmeClient } from '@/backend'
+import { ref, computed } from 'vue'
+import { type AttendmeSchemas } from '@/backend'
+import { UserRole } from '@/types/enums'
 
-type User = AttendmeSchemas['User'];
+type User = AttendmeSchemas['User']
 
 export const useUserStore = defineStore('user', () => {
-    const userData = ref<User | null>(null);
+    const userData = ref<User | null>(null)
 
-    const user = computed(() => userData.value);
+    const user = computed(() => userData.value)
     const role = computed<UserRole | null>(() => {
-        if (!userData.value) return null;
-        if (userData.value.isStudent) return UserRole.Student;
-        if (userData.value.isTeacher) return UserRole.Lecturer;
-        return null;
-    });
+        if (!userData.value) return null
+        if (userData.value.isStudent) return UserRole.Student
+        if (userData.value.isTeacher) return UserRole.Lecturer
+        return null
+    })
 
     async function fetchUserData(): Promise<void> {
         const { data } = await attendmeClient.send(
-            attendmeClient.GET('/user/get', { params: { query: {} } })
-        );
-        userData.value = data;
-    };
+            attendmeClient.GET('/user/get', { params: { query: {} } }),
+        )
+        userData.value = data
+    }
 
     function clearUserData(): void {
-        userData.value = null;
+        userData.value = null
     }
 
     return {
@@ -33,5 +33,5 @@ export const useUserStore = defineStore('user', () => {
         role,
         fetchUserData,
         clearUserData,
-    };
-});
+    }
+})

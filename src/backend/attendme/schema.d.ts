@@ -4,1897 +4,1899 @@
  */
 
 export interface paths {
-    "/attendergroup/save": {
+    '/attendergroup/save': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["AttenderGroup"];
-                    "text/json": components["schemas"]["AttenderGroup"];
-                    "application/*+json": components["schemas"]["AttenderGroup"];
-                };
-            };
+                    'application/json': components['schemas']['AttenderGroup']
+                    'text/json': components['schemas']['AttenderGroup']
+                    'application/*+json': components['schemas']['AttenderGroup']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["AttenderGroup"];
-                        "application/json": components["schemas"]["AttenderGroup"];
-                        "text/json": components["schemas"]["AttenderGroup"];
-                    };
-                };
+                        'text/plain': components['schemas']['AttenderGroup']
+                        'application/json': components['schemas']['AttenderGroup']
+                        'text/json': components['schemas']['AttenderGroup']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/attendergroup/member/add": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/attendergroup/member/add': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
                 query?: {
-                    attenderGroupId?: number;
-                    userId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    attenderGroupId?: number
+                    userId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["AttenderGroup"];
-                        "application/json": components["schemas"]["AttenderGroup"];
-                        "text/json": components["schemas"]["AttenderGroup"];
-                    };
-                };
+                        'text/plain': components['schemas']['AttenderGroup']
+                        'application/json': components['schemas']['AttenderGroup']
+                        'text/json': components['schemas']['AttenderGroup']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/save": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/save': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["Course"];
-                    "text/json": components["schemas"]["Course"];
-                    "application/*+json": components["schemas"]["Course"];
-                };
-            };
+                    'application/json': components['schemas']['Course']
+                    'text/json': components['schemas']['Course']
+                    'application/*+json': components['schemas']['Course']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["Course"];
-                        "application/json": components["schemas"]["Course"];
-                        "text/json": components["schemas"]["Course"];
-                    };
-                };
+                        'text/plain': components['schemas']['Course']
+                        'application/json': components['schemas']['Course']
+                        'text/json': components['schemas']['Course']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/group/save": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/group/save': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["CourseGroup"];
-                    "text/json": components["schemas"]["CourseGroup"];
-                    "application/*+json": components["schemas"]["CourseGroup"];
-                };
-            };
+                    'application/json': components['schemas']['CourseGroup']
+                    'text/json': components['schemas']['CourseGroup']
+                    'application/*+json': components['schemas']['CourseGroup']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["CourseGroup"];
-                        "application/json": components["schemas"]["CourseGroup"];
-                        "text/json": components["schemas"]["CourseGroup"];
-                    };
-                };
+                        'text/plain': components['schemas']['CourseGroup']
+                        'application/json': components['schemas']['CourseGroup']
+                        'text/json': components['schemas']['CourseGroup']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/group/attender-user/add": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/group/attender-user/add': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
                 query?: {
-                    courseGroupId?: number;
-                    userId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    courseGroupId?: number
+                    userId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
+                        [name: string]: unknown
+                    }
+                    content?: never
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/group/attender-group/add": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/group/attender-group/add': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
                 query?: {
-                    courseGroupId?: number;
-                    AttenderGroupId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    courseGroupId?: number
+                    AttenderGroupId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
+                        [name: string]: unknown
+                    }
+                    content?: never
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/group/teacher/assign": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/group/teacher/assign': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
                 query?: {
-                    courseGroupId?: number;
-                    teacherUserId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    courseGroupId?: number
+                    teacherUserId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
+                        [name: string]: unknown
+                    }
+                    content?: never
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/teacher/session/get": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/teacher/session/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
                 query?: {
-                    sessionId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    sessionId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["CourseSessionListItem"];
-                        "application/json": components["schemas"]["CourseSessionListItem"];
-                        "text/json": components["schemas"]["CourseSessionListItem"];
-                    };
-                };
+                        'text/plain': components['schemas']['CourseSessionListItem']
+                        'application/json': components['schemas']['CourseSessionListItem']
+                        'text/json': components['schemas']['CourseSessionListItem']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/student/group/sessions/get": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/student/group/sessions/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
                 query?: {
-                    courseGroupId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    courseGroupId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["CourseSessionListItem"][];
-                        "application/json": components["schemas"]["CourseSessionListItem"][];
-                        "text/json": components["schemas"]["CourseSessionListItem"][];
-                    };
-                };
+                        'text/plain': components['schemas']['CourseSessionListItem'][]
+                        'application/json': components['schemas']['CourseSessionListItem'][]
+                        'text/json': components['schemas']['CourseSessionListItem'][]
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/student/attendance/get": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/student/attendance/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
                 query?: {
-                    courseGroupId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    courseGroupId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["AttendanceLog"][];
-                        "application/json": components["schemas"]["AttendanceLog"][];
-                        "text/json": components["schemas"]["AttendanceLog"][];
-                    };
-                };
+                        'text/plain': components['schemas']['AttendanceLog'][]
+                        'application/json': components['schemas']['AttendanceLog'][]
+                        'text/json': components['schemas']['AttendanceLog'][]
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/session/save": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/session/save': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["CourseSession"];
-                    "text/json": components["schemas"]["CourseSession"];
-                    "application/*+json": components["schemas"]["CourseSession"];
-                };
-            };
+                    'application/json': components['schemas']['CourseSession']
+                    'text/json': components['schemas']['CourseSession']
+                    'application/*+json': components['schemas']['CourseSession']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["CourseSession"];
-                        "application/json": components["schemas"]["CourseSession"];
-                        "text/json": components["schemas"]["CourseSession"];
-                    };
-                };
+                        'text/plain': components['schemas']['CourseSession']
+                        'application/json': components['schemas']['CourseSession']
+                        'text/json': components['schemas']['CourseSession']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/student/sessions/get": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/student/sessions/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["CourseSessionListFiltersPagedListParams"];
-                    "text/json": components["schemas"]["CourseSessionListFiltersPagedListParams"];
-                    "application/*+json": components["schemas"]["CourseSessionListFiltersPagedListParams"];
-                };
-            };
+                    'application/json': components['schemas']['CourseSessionListFiltersPagedListParams']
+                    'text/json': components['schemas']['CourseSessionListFiltersPagedListParams']
+                    'application/*+json': components['schemas']['CourseSessionListFiltersPagedListParams']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["CourseSessionListItemPagedList"];
-                        "application/json": components["schemas"]["CourseSessionListItemPagedList"];
-                        "text/json": components["schemas"]["CourseSessionListItemPagedList"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/teacher/sessions/get": {
+                        'text/plain': components['schemas']['CourseSessionListItemPagedList']
+                        'application/json': components['schemas']['CourseSessionListItemPagedList']
+                        'text/json': components['schemas']['CourseSessionListItemPagedList']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/teacher/sessions/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["CourseSessionListFiltersPagedListParams"];
-                    "text/json": components["schemas"]["CourseSessionListFiltersPagedListParams"];
-                    "application/*+json": components["schemas"]["CourseSessionListFiltersPagedListParams"];
-                };
-            };
+                    'application/json': components['schemas']['CourseSessionListFiltersPagedListParams']
+                    'text/json': components['schemas']['CourseSessionListFiltersPagedListParams']
+                    'application/*+json': components['schemas']['CourseSessionListFiltersPagedListParams']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["CourseSessionListItemPagedList"];
-                        "application/json": components["schemas"]["CourseSessionListItemPagedList"];
-                        "text/json": components["schemas"]["CourseSessionListItemPagedList"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/session/attendance-list/get": {
+                        'text/plain': components['schemas']['CourseSessionListItemPagedList']
+                        'application/json': components['schemas']['CourseSessionListItemPagedList']
+                        'text/json': components['schemas']['CourseSessionListItemPagedList']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/session/attendance-list/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
                 query?: {
-                    sessionId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    sessionId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["CourseSessionAttendanceRecord"][];
-                        "application/json": components["schemas"]["CourseSessionAttendanceRecord"][];
-                        "text/json": components["schemas"]["CourseSessionAttendanceRecord"][];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/session/attendance/scanner/token/get": {
+                        'text/plain': components['schemas']['CourseSessionAttendanceRecord'][]
+                        'application/json': components['schemas']['CourseSessionAttendanceRecord'][]
+                        'text/json': components['schemas']['CourseSessionAttendanceRecord'][]
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/session/attendance/scanner/token/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
                 query?: {
-                    courseSessionId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    courseSessionId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["TokenResult"];
-                        "application/json": components["schemas"]["TokenResult"];
-                        "text/json": components["schemas"]["TokenResult"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/session/attendance/register": {
+                        'text/plain': components['schemas']['TokenResult']
+                        'application/json': components['schemas']['TokenResult']
+                        'text/json': components['schemas']['TokenResult']
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/session/attendance/register': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
                 query?: {
-                    attenderToken?: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    attenderToken?: string
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["User"];
-                        "application/json": components["schemas"]["User"];
-                        "text/json": components["schemas"]["User"];
-                    };
-                };
+                        'text/plain': components['schemas']['User']
+                        'application/json': components['schemas']['User']
+                        'text/json': components['schemas']['User']
+                    }
+                }
                 /** @description Bad Request */
                 400: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/course/session/attendance/toggle": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/course/session/attendance/toggle': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
                 query?: {
-                    attendingUserId?: number;
-                    courseSessionId?: number;
-                    addOrRemove?: boolean;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    attendingUserId?: number
+                    courseSessionId?: number
+                    addOrRemove?: boolean
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["AttendanceLog"][];
-                        "application/json": components["schemas"]["AttendanceLog"][];
-                        "text/json": components["schemas"]["AttendanceLog"][];
-                    };
-                };
+                        'text/plain': components['schemas']['AttendanceLog'][]
+                        'application/json': components['schemas']['AttendanceLog'][]
+                        'text/json': components['schemas']['AttendanceLog'][]
+                    }
+                }
                 /** @description Bad Request */
                 400: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/test/token-decode": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/test/token-decode': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
                 query?: {
-                    token?: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    token?: string
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": string;
-                        "application/json": string;
-                        "text/json": string;
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/login": {
+                        'text/plain': string
+                        'application/json': string
+                        'text/json': string
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/login': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
                 query?: {
-                    loginName?: string;
-                    password?: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    loginName?: string
+                    password?: string
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["TokenResult"];
-                        "application/json": components["schemas"]["TokenResult"];
-                        "text/json": components["schemas"]["TokenResult"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/device/reset": {
+                        'text/plain': components['schemas']['TokenResult']
+                        'application/json': components['schemas']['TokenResult']
+                        'text/json': components['schemas']['TokenResult']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/device/reset': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
                 query?: {
-                    deviceUserId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    deviceUserId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
+                        [name: string]: unknown
+                    }
+                    content?: never
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/device/register/token/get": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/device/register/token/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
                 query?: {
-                    deviceUserId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    deviceUserId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["TokenResult"];
-                        "application/json": components["schemas"]["TokenResult"];
-                        "text/json": components["schemas"]["TokenResult"];
-                    };
-                };
+                        'text/plain': components['schemas']['TokenResult']
+                        'application/json': components['schemas']['TokenResult']
+                        'text/json': components['schemas']['TokenResult']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/device/register": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/device/register': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["DeviceRegisterDTO"];
-                    "text/json": components["schemas"]["DeviceRegisterDTO"];
-                    "application/*+json": components["schemas"]["DeviceRegisterDTO"];
-                };
-            };
+                    'application/json': components['schemas']['DeviceRegisterDTO']
+                    'text/json': components['schemas']['DeviceRegisterDTO']
+                    'application/*+json': components['schemas']['DeviceRegisterDTO']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["TokenResult"];
-                        "application/json": components["schemas"]["TokenResult"];
-                        "text/json": components["schemas"]["TokenResult"];
-                    };
-                };
+                        'text/plain': components['schemas']['TokenResult']
+                        'application/json': components['schemas']['TokenResult']
+                        'text/json': components['schemas']['TokenResult']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/attendance/ticket/get": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/attendance/ticket/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["TokenResult"];
-                        "application/json": components["schemas"]["TokenResult"];
-                        "text/json": components["schemas"]["TokenResult"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/get": {
+                        'text/plain': components['schemas']['TokenResult']
+                        'application/json': components['schemas']['TokenResult']
+                        'text/json': components['schemas']['TokenResult']
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
         get: {
             parameters: {
                 query?: {
-                    userId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
+                    userId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: never
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["User"];
-                        "application/json": components["schemas"]["User"];
-                        "text/json": components["schemas"]["User"];
-                    };
-                };
+                        'text/plain': components['schemas']['User']
+                        'application/json': components['schemas']['User']
+                        'text/json': components['schemas']['User']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/list/get": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        put?: never
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/list/get': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                query?: never
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["UserListFiltersPagedListParams"];
-                    "text/json": components["schemas"]["UserListFiltersPagedListParams"];
-                    "application/*+json": components["schemas"]["UserListFiltersPagedListParams"];
-                };
-            };
+                    'application/json': components['schemas']['UserListFiltersPagedListParams']
+                    'text/json': components['schemas']['UserListFiltersPagedListParams']
+                    'application/*+json': components['schemas']['UserListFiltersPagedListParams']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["UserListItemPagedList"];
-                        "application/json": components["schemas"]["UserListItemPagedList"];
-                        "text/json": components["schemas"]["UserListItemPagedList"];
-                    };
-                };
+                        'text/plain': components['schemas']['UserListItemPagedList']
+                        'application/json': components['schemas']['UserListItemPagedList']
+                        'text/json': components['schemas']['UserListItemPagedList']
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/student/create": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/student/create': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: {
-            parameters: {
-                query?: {
-                    loginName?: string;
-                    password?: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: {
-                content: {
-                    "application/json": components["schemas"]["StudentUserDTO"];
-                    "text/json": components["schemas"]["StudentUserDTO"];
-                    "application/*+json": components["schemas"]["StudentUserDTO"];
-                };
-            };
-            responses: {
-                /** @description Success */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "text/plain": number;
-                        "application/json": number;
-                        "text/json": number;
-                    };
-                };
-                /** @description Forbidden */
-                403: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/teacher/create": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
                 query?: {
-                    loginName?: string;
-                    password?: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                    loginName?: string
+                    password?: string
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["TeacherUserDTO"];
-                    "text/json": components["schemas"]["TeacherUserDTO"];
-                    "application/*+json": components["schemas"]["TeacherUserDTO"];
-                };
-            };
+                    'application/json': components['schemas']['StudentUserDTO']
+                    'text/json': components['schemas']['StudentUserDTO']
+                    'application/*+json': components['schemas']['StudentUserDTO']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": number;
-                        "application/json": number;
-                        "text/json": number;
-                    };
-                };
+                        'text/plain': number
+                        'application/json': number
+                        'text/json': number
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/admin/create": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/teacher/create': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
         post: {
             parameters: {
                 query?: {
-                    loginName?: string;
-                    password?: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                    loginName?: string
+                    password?: string
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["UserDTO"];
-                    "text/json": components["schemas"]["UserDTO"];
-                    "application/*+json": components["schemas"]["UserDTO"];
-                };
-            };
+                    'application/json': components['schemas']['TeacherUserDTO']
+                    'text/json': components['schemas']['TeacherUserDTO']
+                    'application/*+json': components['schemas']['TeacherUserDTO']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": number;
-                        "application/json": number;
-                        "text/json": number;
-                    };
-                };
+                        'text/plain': number
+                        'application/json': number
+                        'text/json': number
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/update": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/admin/create': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
+        put?: never
+        post: {
+            parameters: {
+                query?: {
+                    loginName?: string
+                    password?: string
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
+            requestBody?: {
+                content: {
+                    'application/json': components['schemas']['UserDTO']
+                    'text/json': components['schemas']['UserDTO']
+                    'application/*+json': components['schemas']['UserDTO']
+                }
+            }
+            responses: {
+                /** @description Success */
+                200: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'text/plain': number
+                        'application/json': number
+                        'text/json': number
+                    }
+                }
+                /** @description Forbidden */
+                403: {
+                    headers: {
+                        [name: string]: unknown
+                    }
+                    content: {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/update': {
+        parameters: {
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
         put: {
             parameters: {
                 query?: {
-                    userId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                    userId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["UserDTO"];
-                    "text/json": components["schemas"]["UserDTO"];
-                    "application/*+json": components["schemas"]["UserDTO"];
-                };
-            };
+                    'application/json': components['schemas']['UserDTO']
+                    'text/json': components['schemas']['UserDTO']
+                    'application/*+json': components['schemas']['UserDTO']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": number;
-                        "application/json": number;
-                        "text/json": number;
-                    };
-                };
+                        'text/plain': number
+                        'application/json': number
+                        'text/json': number
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
                 /** @description Not Found */
                 404: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/student/update": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/student/update': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
         put: {
             parameters: {
                 query?: {
-                    userId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                    userId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["StudentUserDTO"];
-                    "text/json": components["schemas"]["StudentUserDTO"];
-                    "application/*+json": components["schemas"]["StudentUserDTO"];
-                };
-            };
+                    'application/json': components['schemas']['StudentUserDTO']
+                    'text/json': components['schemas']['StudentUserDTO']
+                    'application/*+json': components['schemas']['StudentUserDTO']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": number;
-                        "application/json": number;
-                        "text/json": number;
-                    };
-                };
+                        'text/plain': number
+                        'application/json': number
+                        'text/json': number
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
                 /** @description Not Found */
                 404: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/user/teacher/update": {
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
+    '/user/teacher/update': {
         parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
+            query?: never
+            header?: never
+            path?: never
+            cookie?: never
+        }
+        get?: never
         put: {
             parameters: {
                 query?: {
-                    userId?: number;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
+                    userId?: number
+                }
+                header?: never
+                path?: never
+                cookie?: never
+            }
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["TeacherUserDTO"];
-                    "text/json": components["schemas"]["TeacherUserDTO"];
-                    "application/*+json": components["schemas"]["TeacherUserDTO"];
-                };
-            };
+                    'application/json': components['schemas']['TeacherUserDTO']
+                    'text/json': components['schemas']['TeacherUserDTO']
+                    'application/*+json': components['schemas']['TeacherUserDTO']
+                }
+            }
             responses: {
                 /** @description Success */
                 200: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": number;
-                        "application/json": number;
-                        "text/json": number;
-                    };
-                };
+                        'text/plain': number
+                        'application/json': number
+                        'text/json': number
+                    }
+                }
                 /** @description Forbidden */
                 403: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
                 /** @description Not Found */
                 404: {
                     headers: {
-                        [name: string]: unknown;
-                    };
+                        [name: string]: unknown
+                    }
                     content: {
-                        "text/plain": components["schemas"]["ProblemDetails"];
-                        "application/json": components["schemas"]["ProblemDetails"];
-                        "text/json": components["schemas"]["ProblemDetails"];
-                    };
-                };
-            };
-        };
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
+                        'text/plain': components['schemas']['ProblemDetails']
+                        'application/json': components['schemas']['ProblemDetails']
+                        'text/json': components['schemas']['ProblemDetails']
+                    }
+                }
+            }
+        }
+        post?: never
+        delete?: never
+        options?: never
+        head?: never
+        patch?: never
+        trace?: never
+    }
 }
-export type webhooks = Record<string, never>;
+export type webhooks = Record<string, never>
 export interface components {
     schemas: {
         AttendanceLog: {
             /** Format: int32 */
-            attendanceLogId?: number;
+            attendanceLogId?: number
             /** Format: int32 */
-            attenderUserId?: number;
+            attenderUserId?: number
             /** Format: int32 */
-            courseSessionId?: number;
+            courseSessionId?: number
             /** Format: date-time */
-            readonly dateCreated?: string;
-        };
+            readonly dateCreated?: string
+        }
         AttenderGroup: {
             /** Format: int32 */
-            attenderGroupId?: number;
-            groupName?: string;
+            attenderGroupId?: number
+            groupName?: string
             /** Format: int32 */
-            yearOfStudy?: number;
-            studyDirection?: string;
+            yearOfStudy?: number
+            studyDirection?: string
             /** Format: date-time */
-            readonly dateCreated?: string;
-            attenderGroupMembers?: components["schemas"]["AttenderGroupMember"][] | null;
-        };
+            readonly dateCreated?: string
+            attenderGroupMembers?: components['schemas']['AttenderGroupMember'][] | null
+        }
         AttenderGroupMember: {
             /** Format: int32 */
-            attenderGroupMemberId?: number;
+            attenderGroupMemberId?: number
             /** Format: int32 */
-            memberUserId?: number;
-            memberUser?: components["schemas"]["User"];
+            memberUserId?: number
+            memberUser?: components['schemas']['User']
             /** Format: int32 */
-            attenderGroupId?: number;
-            attenderGroup?: components["schemas"]["AttenderGroup"];
+            attenderGroupId?: number
+            attenderGroup?: components['schemas']['AttenderGroup']
             /** Format: date-time */
-            readonly dateCreated?: string;
-        };
+            readonly dateCreated?: string
+        }
         Course: {
             /** Format: int32 */
-            courseId?: number;
-            courseName?: string;
-            courseDescription?: string;
+            courseId?: number
+            courseName?: string
+            courseDescription?: string
             /** Format: date-time */
-            readonly dateCreated?: string;
-            courseGroups?: components["schemas"]["CourseGroup"][] | null;
-        };
+            readonly dateCreated?: string
+            courseGroups?: components['schemas']['CourseGroup'][] | null
+        }
         CourseGroup: {
             /** Format: int32 */
-            courseGroupId?: number;
+            courseGroupId?: number
             /** Format: int32 */
-            courseId?: number;
-            course?: components["schemas"]["Course"];
-            courseGroupType?: string;
-            courseGroupName?: string;
-            courseGroupDescription?: string | null;
+            courseId?: number
+            course?: components['schemas']['Course']
+            courseGroupType?: string
+            courseGroupName?: string
+            courseGroupDescription?: string | null
             /** Format: int32 */
-            teacherUserId?: number | null;
-            teacherUser?: components["schemas"]["User"];
-            sessions?: components["schemas"]["CourseSession"][] | null;
-            attenderGroupAssigments?: components["schemas"]["CourseGroupAttenderGroupAssigment"][] | null;
-            userAssigments?: components["schemas"]["CourseGroupUserAssigment"][] | null;
+            teacherUserId?: number | null
+            teacherUser?: components['schemas']['User']
+            sessions?: components['schemas']['CourseSession'][] | null
+            attenderGroupAssigments?:
+                | components['schemas']['CourseGroupAttenderGroupAssigment'][]
+                | null
+            userAssigments?: components['schemas']['CourseGroupUserAssigment'][] | null
             /** Format: int32 */
-            yearOfStudy?: number;
-            semesterCode?: string | null;
+            yearOfStudy?: number
+            semesterCode?: string | null
             /** Format: date-time */
-            dateStart?: string;
+            dateStart?: string
             /** Format: date-time */
-            dateEnd?: string;
+            dateEnd?: string
             /** Format: date-time */
-            readonly dateCreated?: string;
-        };
+            readonly dateCreated?: string
+        }
         CourseGroupAttenderGroupAssigment: {
             /** Format: int32 */
-            courseGroupAttenderGroupAssigmentId?: number;
+            courseGroupAttenderGroupAssigmentId?: number
             /** Format: int32 */
-            courseGroupId?: number;
+            courseGroupId?: number
             /** Format: int32 */
-            attenderGroupId?: number | null;
-            isExcluded?: boolean;
+            attenderGroupId?: number | null
+            isExcluded?: boolean
             /** Format: date-time */
-            readonly dateCreated?: string;
-            courseGroup?: components["schemas"]["CourseGroup"];
-            attenderGroup?: components["schemas"]["AttenderGroup"];
-        };
+            readonly dateCreated?: string
+            courseGroup?: components['schemas']['CourseGroup']
+            attenderGroup?: components['schemas']['AttenderGroup']
+        }
         CourseGroupUserAssigment: {
             /** Format: int32 */
-            courseGroupUserAssigmentId?: number;
+            courseGroupUserAssigmentId?: number
             /** Format: int32 */
-            courseGroupId?: number;
-            courseGroup?: components["schemas"]["CourseGroup"];
+            courseGroupId?: number
+            courseGroup?: components['schemas']['CourseGroup']
             /** Format: int32 */
-            userId?: number | null;
+            userId?: number | null
             /** Format: date-time */
-            readonly dateCreated?: string;
-            isExcluded?: boolean;
-            user?: components["schemas"]["User"];
-        };
+            readonly dateCreated?: string
+            isExcluded?: boolean
+            user?: components['schemas']['User']
+        }
         CourseSession: {
             /** Format: int32 */
-            courseSessionId?: number;
+            courseSessionId?: number
             /** Format: int32 */
-            courseGroupId?: number;
-            courseGroup?: components["schemas"]["CourseGroup"];
-            locationName?: string;
+            courseGroupId?: number
+            courseGroup?: components['schemas']['CourseGroup']
+            locationName?: string
             /** Format: date-time */
-            dateStart?: string;
+            dateStart?: string
             /** Format: date-time */
-            dateEnd?: string;
+            dateEnd?: string
             /** Format: date-time */
-            readonly dateCreated?: string;
-            attendanceLogs?: components["schemas"]["AttendanceLog"][];
-        };
+            readonly dateCreated?: string
+            attendanceLogs?: components['schemas']['AttendanceLog'][]
+        }
         CourseSessionAttendanceRecord: {
             /** Format: int32 */
-            attendanceLogId?: number | null;
+            attendanceLogId?: number | null
             /** Format: int32 */
-            courseSessionId?: number;
+            courseSessionId?: number
             /** Format: int32 */
-            attenderUserId?: number | null;
-            userName?: string | null;
-            userSurname?: string | null;
+            attenderUserId?: number | null
+            userName?: string | null
+            userSurname?: string | null
             /** Format: int32 */
-            studentAlbumIdNumber?: number | null;
+            studentAlbumIdNumber?: number | null
             /** Format: date-time */
-            attendanceLogMinDateCreated?: string | null;
-            readonly wasUserPresent?: boolean;
-        };
+            attendanceLogMinDateCreated?: string | null
+            readonly wasUserPresent?: boolean
+        }
         CourseSessionListFilters: {
-            search?: string | null;
-            courseName?: string | null;
-            courseGroupName?: string | null;
-            locationName?: string | null;
+            search?: string | null
+            courseName?: string | null
+            courseGroupName?: string | null
+            locationName?: string | null
             /** Format: date-time */
-            dateStart?: string | null;
+            dateStart?: string | null
             /** Format: date-time */
-            dateEnd?: string | null;
-        };
+            dateEnd?: string | null
+        }
         CourseSessionListFiltersPagedListParams: {
             /** Format: int32 */
-            pageNumber: number;
+            pageNumber: number
             /** Format: int32 */
-            pageSize: number;
-            filters?: components["schemas"]["CourseSessionListFilters"];
-            sortBy?: string | null;
-        };
+            pageSize: number
+            filters?: components['schemas']['CourseSessionListFilters']
+            sortBy?: string | null
+        }
         CourseSessionListItem: {
             /** Format: int32 */
-            readonly courseId?: number;
-            readonly courseName?: string;
+            readonly courseId?: number
+            readonly courseName?: string
             /** Format: int32 */
-            readonly courseGroupId?: number;
-            readonly courseGroupName?: string;
+            readonly courseGroupId?: number
+            readonly courseGroupName?: string
             /** Format: int32 */
-            readonly courseSessionId?: number;
-            readonly locationName?: string;
+            readonly courseSessionId?: number
+            readonly locationName?: string
             /** Format: date-time */
-            readonly dateStart?: string;
+            readonly dateStart?: string
             /** Format: date-time */
-            readonly dateEnd?: string;
-        };
+            readonly dateEnd?: string
+        }
         CourseSessionListItemPagedList: {
-            items: components["schemas"]["CourseSessionListItem"][];
+            items: components['schemas']['CourseSessionListItem'][]
             /** Format: int32 */
-            totalCount: number;
+            totalCount: number
             /** Format: int32 */
-            pageNumber: number;
+            pageNumber: number
             /** Format: int32 */
-            pageSize: number;
+            pageSize: number
             /** Format: int32 */
-            readonly totalPages: number;
-        };
+            readonly totalPages: number
+        }
         DeviceRegisterDTO: {
-            deviceName?: string;
-            studentName?: string;
-            studentSurname?: string;
+            deviceName?: string
+            studentName?: string
+            studentSurname?: string
             /** Format: int32 */
-            albumIdNumber?: number;
-        };
+            albumIdNumber?: number
+        }
         ProblemDetails: {
-            type?: string | null;
-            title?: string | null;
+            type?: string | null
+            title?: string | null
             /** Format: int32 */
-            status?: number | null;
-            detail?: string | null;
-            instance?: string | null;
+            status?: number | null
+            detail?: string | null
+            instance?: string | null
         } & {
-            [key: string]: unknown;
-        };
+            [key: string]: unknown
+        }
         Student: {
             /** Format: int32 */
-            studentId?: number;
+            studentId?: number
             /** Format: int32 */
-            albumIdNumber?: number;
+            albumIdNumber?: number
             /** Format: int32 */
-            currentYearOfStudy?: number;
+            currentYearOfStudy?: number
             /** Format: date-time */
-            readonly dateCreated?: string;
-        };
+            readonly dateCreated?: string
+        }
         StudentUserDTO: {
             /** Format: int32 */
-            readonly userId?: number;
-            name?: string;
-            surname?: string;
+            readonly userId?: number
+            name?: string
+            surname?: string
             /** Format: int32 */
-            albumIdNumber?: number;
-        };
+            albumIdNumber?: number
+        }
         Teacher: {
             /** Format: int32 */
-            teacherId?: number;
-            academicTitle?: string;
+            teacherId?: number
+            academicTitle?: string
             /** Format: date-time */
-            readonly dateCreated?: string;
-        };
+            readonly dateCreated?: string
+        }
         TeacherUserDTO: {
             /** Format: int32 */
-            readonly userId?: number;
-            name?: string;
-            surname?: string;
-            academicTitle?: string;
-        };
+            readonly userId?: number
+            name?: string
+            surname?: string
+            academicTitle?: string
+        }
         TokenResult: {
-            token?: string;
+            token?: string
             /** Format: date-time */
-            expires?: string | null;
-        };
+            expires?: string | null
+        }
         User: {
             /** Format: int32 */
-            userId?: number;
-            loginName?: string;
-            name?: string | null;
-            surname?: string | null;
+            userId?: number
+            loginName?: string
+            name?: string | null
+            surname?: string | null
             /** Format: int32 */
-            studentId?: number | null;
+            studentId?: number | null
             /** Format: int32 */
-            teacherId?: number | null;
-            student?: components["schemas"]["Student"];
-            readonly isStudent?: boolean;
-            teacher?: components["schemas"]["Teacher"];
-            readonly isTeacher?: boolean;
+            teacherId?: number | null
+            student?: components['schemas']['Student']
+            readonly isStudent?: boolean
+            teacher?: components['schemas']['Teacher']
+            readonly isTeacher?: boolean
             /** Format: date-time */
-            readonly dateCreated?: string;
-            deviceName?: string | null;
-            isAdmin?: boolean;
-        };
+            readonly dateCreated?: string
+            deviceName?: string | null
+            isAdmin?: boolean
+        }
         UserDTO: {
             /** Format: int32 */
-            readonly userId?: number;
-            name?: string;
-            surname?: string;
-        };
+            readonly userId?: number
+            name?: string
+            surname?: string
+        }
         UserListFilters: {
             /** Format: int32 */
-            userId?: number | null;
-            search?: string | null;
-            isTeacher?: boolean | null;
-            isStudent?: boolean | null;
-            isAdmin?: boolean | null;
+            userId?: number | null
+            search?: string | null
+            isTeacher?: boolean | null
+            isStudent?: boolean | null
+            isAdmin?: boolean | null
             /** Format: date-time */
-            dateCreatedStart?: string | null;
+            dateCreatedStart?: string | null
             /** Format: date-time */
-            dateCreatedEnd?: string | null;
-        };
+            dateCreatedEnd?: string | null
+        }
         UserListFiltersPagedListParams: {
             /** Format: int32 */
-            pageNumber: number;
+            pageNumber: number
             /** Format: int32 */
-            pageSize: number;
-            filters?: components["schemas"]["UserListFilters"];
-            sortBy?: string | null;
-        };
+            pageSize: number
+            filters?: components['schemas']['UserListFilters']
+            sortBy?: string | null
+        }
         UserListItem: {
             /** Format: int32 */
-            userId?: number | null;
-            loginName?: string | null;
-            name?: string | null;
-            surname?: string | null;
+            userId?: number | null
+            loginName?: string | null
+            name?: string | null
+            surname?: string | null
             /** Format: int32 */
-            studentId?: number | null;
+            studentId?: number | null
             /** Format: int32 */
-            teacherId?: number | null;
-            readonly isStudent?: boolean;
-            readonly isTeacher?: boolean;
-            isAdmin?: boolean;
+            teacherId?: number | null
+            readonly isStudent?: boolean
+            readonly isTeacher?: boolean
+            isAdmin?: boolean
             /** Format: date-time */
-            dateCreated?: string | null;
-        };
+            dateCreated?: string | null
+        }
         UserListItemPagedList: {
-            items: components["schemas"]["UserListItem"][];
+            items: components['schemas']['UserListItem'][]
             /** Format: int32 */
-            totalCount: number;
+            totalCount: number
             /** Format: int32 */
-            pageNumber: number;
+            pageNumber: number
             /** Format: int32 */
-            pageSize: number;
+            pageSize: number
             /** Format: int32 */
-            readonly totalPages: number;
-        };
-    };
-    responses: never;
-    parameters: never;
-    requestBodies: never;
-    headers: never;
-    pathItems: never;
+            readonly totalPages: number
+        }
+    }
+    responses: never
+    parameters: never
+    requestBodies: never
+    headers: never
+    pathItems: never
 }
-export type $defs = Record<string, never>;
-export type operations = Record<string, never>;
+export type $defs = Record<string, never>
+export type operations = Record<string, never>

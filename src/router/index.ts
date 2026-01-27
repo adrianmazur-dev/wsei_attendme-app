@@ -1,9 +1,9 @@
-import { useAuthStore } from '@/stores/useAuthStore';
-import { useUserStore } from '@/stores/useUserStore';
+import { useAuthStore } from '@/stores/useAuthStore'
+import { useUserStore } from '@/stores/useUserStore'
 import { createRouter, createWebHistory } from 'vue-router'
 
-const LoginView = () => import('@/views/LoginView.vue');
-const DashboardView = () => import('@/views/DashboardView.vue');
+const LoginView = () => import('@/views/LoginView.vue')
+const DashboardView = () => import('@/views/DashboardView.vue')
 
 const router = createRouter({
     history: createWebHistory(),
@@ -12,12 +12,12 @@ const router = createRouter({
             path: '/login',
             component: LoginView,
             meta: {},
-            beforeEnter: (to, from) => {
-                const authStore = useAuthStore();
+            beforeEnter: () => {
+                const authStore = useAuthStore()
                 if (authStore.isAuthenticated) {
-                    return ('/');
+                    return '/'
                 }
-                return true;
+                return true
             },
         },
         {
@@ -29,25 +29,25 @@ const router = createRouter({
             component: DashboardView,
             meta: { requiresAuth: true },
         },
-    ]
+    ],
 })
 
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to) => {
     if (to.meta.requiresAuth) {
-        const authStore = useAuthStore();
-        const userStore = useUserStore();
+        const authStore = useAuthStore()
+        const userStore = useUserStore()
 
         if (!authStore.isAuthenticated) {
-            authStore.logout();
-            userStore.clearUserData();
-            return ('/login');
+            authStore.logout()
+            userStore.clearUserData()
+            return '/login'
         } else {
-            const userStore = useUserStore();
-            await userStore.fetchUserData();
+            const userStore = useUserStore()
+            await userStore.fetchUserData()
         }
     }
 
-    return true;
-});
+    return true
+})
 
-export default router;
+export default router

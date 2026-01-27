@@ -12,47 +12,39 @@ export const loggingMiddleware: Middleware = {
     },
     async onError({ error }) {
         console.error('[API] Network error:', error)
-    }
+    },
 }
 
 export const errorMiddleware: Middleware = {
-    async onResponse({ request, response }) {
+    async onResponse({ response }) {
         if (!response.ok) {
-            throw new ApiError(
-                response.status,
-                `API request failed`,
-                response
-            )
+            throw new ApiError(response.status, `API request failed`, response)
         }
     },
 
-    async onError({ request, error }) {
-        return new ApiError(
-            null,
-            `Fetch error occurred`,
-            error
-        )
+    async onError({ error }) {
+        return new ApiError(null, `Fetch error occurred`, error)
     },
 }
 
 export const baseUrlMiddleware = (getBaseUrl: () => string): Middleware => ({
     onRequest: ({ request }) => {
-        const currentBaseUrl = getBaseUrl();
+        const currentBaseUrl = getBaseUrl()
 
-        const requestUrl = new URL(request.url);
-        const baseUrl = new URL(currentBaseUrl);
-        const finalUrl = `${baseUrl.origin.replace(/\/$/, '')}${requestUrl.pathname}${requestUrl.search}`;
+        const requestUrl = new URL(request.url)
+        const baseUrl = new URL(currentBaseUrl)
+        const finalUrl = `${baseUrl.origin.replace(/\/$/, '')}${requestUrl.pathname}${requestUrl.search}`
 
-        return new Request(finalUrl, request);
+        return new Request(finalUrl, request)
     },
 })
 
 export const jwtMiddleware = (getToken: () => string | null): Middleware => ({
     onRequest: ({ request }) => {
-        const token = getToken();
+        const token = getToken()
         if (token) {
-            request.headers.set('Authorization', `Bearer ${token}`);
+            request.headers.set('Authorization', `Bearer ${token}`)
         }
-        return request;
+        return request
     },
 })

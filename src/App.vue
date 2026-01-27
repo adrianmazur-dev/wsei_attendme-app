@@ -1,9 +1,9 @@
 <template>
     <router-view />
-    
+
     <AppNotifications />
 </template>
 
 <script setup lang="ts">
-import AppNotifications from '@/components/AppNotifications.vue';
+import AppNotifications from '@/components/AppNotifications.vue'
 </script>

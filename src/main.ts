@@ -1,23 +1,23 @@
-import { createApp } from 'vue';
-import App from '@/App.vue';
-import router from '@/router';
-import pinia from '@/plugins/pinia';
-import { setupPrimeVue } from '@/plugins/primevue';
-import { setupGlobalErrors } from '@/plugins/error-handler';
+import { createApp } from 'vue'
+import App from '@/App.vue'
+import router from '@/router'
+import pinia from '@/plugins/pinia'
+import { setupPrimeVue } from '@/plugins/primevue'
+import { setupGlobalErrors } from '@/plugins/error-handler'
 
-import './assets/style.css';
+import './assets/style.css'
 
 async function initApp() {
-    const app = createApp(App);
+    const app = createApp(App)
 
-    app.use(pinia);
-    app.use(router);
+    app.use(pinia)
+    app.use(router)
 
-    setupPrimeVue(app);
+    setupPrimeVue(app)
 
-    setupGlobalErrors();
+    setupGlobalErrors()
 
-    app.mount('#app');
+    app.mount('#app')
 }
 
-initApp();
+initApp()
