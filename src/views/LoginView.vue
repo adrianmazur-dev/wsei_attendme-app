@@ -14,7 +14,7 @@ const password = ref('');
 
 const handleLogin = async () => {
   if (!loginName.value || !password.value) {
-    notify.error('Please enter both username and password');
+    notify.error('Please enter both username and password', 'Login Failed');
     return;
   }
   
@@ -27,13 +27,18 @@ const handleLogin = async () => {
 <template>
   <div class="login-container">
     <div class="login-card">
-
+      <div class="logo">
+        <img src="@/assets/logo-dark.png" alt="" />
+      </div>
+      
       <form @submit.prevent="handleLogin">
         <div class="field">
           <label for="username">Username</label>
           <InputText 
             id="username" 
             v-model="loginName" 
+            placeholder="Enter your username"
+            class="w-full"
           />
         </div>
 
@@ -42,43 +47,68 @@ const handleLogin = async () => {
           <Password 
             id="password" 
             v-model="password" 
+            :feedback="false"
+            toggleMask
+            class="w-full"
+            placeholder="Enter your password"
           />
         </div>
 
         <Button 
           type="submit" 
           label="Login" 
+          class="w-full login-btn"
         />
       </form>
     </div>
   </div>
 </template>
 
-<style scoped lang="css">
+<style scoped>
 .login-container {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #1a1a1a;
 }
 
 .login-card {
-    background: #333;
+    background: #2d2d2d;
     padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     width: 100%;
-    max-width: 400px;
+    max-width: 380px;
 }
 
 .field {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
 .field label {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    color: #cbd5e1;
+}
+
+.w-full {
+    width: 100% !important;
+}
+
+:deep(.p-password input) {
+    width: 100%;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo img {
+    max-width: 220px;
+    height: auto;
 }
 </style>
