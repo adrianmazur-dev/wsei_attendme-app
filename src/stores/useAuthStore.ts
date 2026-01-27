@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 
 import { defineStore } from 'pinia'
-import { attendmeClient } from '@/api'
+import { attendmeClient } from '@/backend'
 
 export const useAuthStore = defineStore('auth', () => {
     const token = ref<string | null>(null)

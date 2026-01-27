@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia';
-import { attendmeClient } from '@/api';
+import { attendmeClient } from '@/backend';
 import { ref, computed } from 'vue';
-import { type AttendmeSchemas } from '@/api';
-import { ApiError } from '@/types/errors';
+import { type AttendmeSchemas } from '@/backend';
 import { UserRole } from '@/types/enums';
 
 type User = AttendmeSchemas['User'];
