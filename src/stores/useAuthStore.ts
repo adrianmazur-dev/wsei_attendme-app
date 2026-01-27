@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 import { defineStore } from 'pinia'
 import { attendmeClient } from '@/api'
@@ -7,6 +7,10 @@ export const useAuthStore = defineStore('auth', () => {
     const token = ref<string | null>(null)
     const expires = ref<number | null>(null)
 
+    const isAuthenticated = computed(() => {
+        if (!token.value || !expires.value) return false;
+        return Date.now() < expires.value;
+    });
 
     async function userLogin(loginName: string, password: string): Promise<void> {
         const { data, response } = await attendmeClient.send(
@@ -21,9 +25,9 @@ export const useAuthStore = defineStore('auth', () => {
         }
     }
 
-    const isAuthenticated = (): boolean => {
-        if (!token.value || !expires.value) return false;
-        return Date.now() < expires.value;
+    const logout = (): void => {
+        token.value = null
+        expires.value = null
     };
 
     return {
@@ -31,6 +35,7 @@ export const useAuthStore = defineStore('auth', () => {
         expires,
         isAuthenticated,
         userLogin,
+        logout,
     }
 }, {
     persist: true,

@@ -25,9 +25,14 @@ export const useUserStore = defineStore('user', () => {
         userData.value = data;
     };
 
+    function clearUserData(): void {
+        userData.value = null;
+    }
+
     return {
         user,
         role,
-        fetchUserData
+        fetchUserData,
+        clearUserData,
     };
 });

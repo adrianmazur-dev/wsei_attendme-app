@@ -14,7 +14,7 @@ const router = createRouter({
             meta: {},
             beforeEnter: (to, from) => {
                 const authStore = useAuthStore();
-                if (authStore.isAuthenticated()) {
+                if (authStore.isAuthenticated) {
                     return ('/');
                 }
                 return true;
@@ -35,7 +35,11 @@ const router = createRouter({
 router.beforeEach(async (to, from) => {
     if (to.meta.requiresAuth) {
         const authStore = useAuthStore();
-        if (!authStore.isAuthenticated()) {
+        const userStore = useUserStore();
+
+        if (!authStore.isAuthenticated) {
+            authStore.logout();
+            userStore.clearUserData();
             return ('/login');
         } else {
             const userStore = useUserStore();
