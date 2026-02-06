@@ -6,6 +6,9 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default [
     {
+        ignores: ['dist/**', 'node_modules/**'],
+    },
+    {
         files: ['**/*.{js,mjs,cjs,ts,mts,cts,vue}'],
         languageOptions: {
             globals: globals.browser,
