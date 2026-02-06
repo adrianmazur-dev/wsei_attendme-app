@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/useAuthStore'
 import { notify } from '@/utils/toast'
-
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import Button from 'primevue/button'
@@ -25,24 +24,24 @@ const handleLogin = async () => {
 </script>
 
 <template>
-    <div class="login-container">
+    <div class="login-wrapper">
         <div class="login-card">
-            <div class="logo">
-                <img src="@/assets/logo-dark.png" alt="" />
+            <div class="login-logo">
+                <img src="@/assets/images/logo-light.png" alt="Logo" />
             </div>
 
-            <form @submit.prevent="handleLogin">
-                <div class="field">
+            <form class="login-form" @submit.prevent="handleLogin">
+                <div class="login-field">
                     <label for="username">Username</label>
                     <InputText
                         id="username"
                         v-model="loginName"
-                        placeholder="Enter your username"
                         class="w-full"
+                        placeholder="Enter your username"
                     />
                 </div>
 
-                <div class="field">
+                <div class="login-field">
                     <label for="password">Password</label>
                     <Password
                         id="password"
@@ -54,57 +53,8 @@ const handleLogin = async () => {
                     />
                 </div>
 
-                <Button type="submit" label="Login" class="w-full login-btn" />
+                <Button type="submit" label="Login" class="w-full login-submit" />
             </form>
         </div>
     </div>
 </template>
-
-<style scoped>
-.login-container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #1a1a1a;
-}
-
-.login-card {
-    background: #2d2d2d;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    width: 100%;
-    max-width: 380px;
-}
-
-.field {
-    margin-bottom: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.field label {
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.w-full {
-    width: 100% !important;
-}
-
-:deep(.p-password input) {
-    width: 100%;
-}
-
-.logo {
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
-
-.logo img {
-    max-width: 220px;
-    height: auto;
-}
-</style>
