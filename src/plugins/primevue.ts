@@ -10,7 +10,7 @@ export function setupPrimeVue(app: App) {
             preset: Aura,
             options: {
                 prefix: 'p',
-                darkModeSelector: false,
+                darkModeSelector: '.dark',
             },
         },
     })
