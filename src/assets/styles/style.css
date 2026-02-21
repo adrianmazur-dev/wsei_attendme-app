@@ -1,1 +1,4 @@
 @import './base.css';
+
+/* Views */
+@import './views/dashboard.css';
