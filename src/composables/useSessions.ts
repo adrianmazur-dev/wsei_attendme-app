@@ -1,8 +1,10 @@
 import { ref } from 'vue'
 import { attendmeClient, type AttendmeSchemas } from '@/backend'
+import { useRouter } from 'vue-router'
 import { UserRole } from '@/types/enums'
 
 export function useSessions() {
+    const router = useRouter()
     const isLoading = ref(false)
     const sessions = ref<AttendmeSchemas['CourseSessionListItem'][]>([])
 
@@ -31,5 +33,12 @@ export function useSessions() {
         }
     }
 
-    return { isLoading, sessions, fetchSessions }
+    function openSession(session: AttendmeSchemas['CourseSessionListItem']) {
+        router.push({
+            name: 'student-session-details',
+            params: { courseGroupId: session.courseGroupId, sessionId: session.courseSessionId },
+        })
+    }
+
+    return { isLoading, sessions, fetchSessions, openSession }
 }

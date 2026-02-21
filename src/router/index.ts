@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const LoginView = () => import('@/views/LoginView.vue')
 const DashboardView = () => import('@/views/DashboardView.vue')
+const StudentSessionDetailsView = () => import('@/views/student/StudentSessionDetailsView.vue')
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,12 @@ const router = createRouter({
         {
             path: '/dashboard',
             component: DashboardView,
+            meta: { requiresAuth: true },
+        },
+        {
+            path: '/student/session/:courseGroupId/:sessionId',
+            name: 'student-session-details',
+            component: StudentSessionDetailsView,
             meta: { requiresAuth: true },
         },
     ],

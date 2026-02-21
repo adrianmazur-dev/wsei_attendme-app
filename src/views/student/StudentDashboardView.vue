@@ -6,7 +6,7 @@ import { useSessions } from '@/composables/useSessions'
 import AppLoadingState from '@/components/AppLoadingState.vue'
 import { useUserStore } from '@/stores/useUserStore'
 
-const { sessions, isLoading, fetchSessions } = useSessions()
+const { sessions, isLoading, fetchSessions, openSession } = useSessions()
 const { role } = useUserStore()
 
 if (role) onMounted(() => fetchSessions(role))
@@ -21,7 +21,12 @@ if (role) onMounted(() => fetchSessions(role))
         </div>
 
         <ul v-else class="sessions-list">
-            <li v-for="s in sessions" :key="s.courseSessionId" class="session-item">
+            <li
+                class="session-item"
+                v-for="s in sessions"
+                :key="s.courseSessionId"
+                @click="openSession(s)"
+            >
                 <div class="session-item__left">
                     <Tag
                         :value="formatDayTimeRange(s.dateStart, s.dateEnd)"
