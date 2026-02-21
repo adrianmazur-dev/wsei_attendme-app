@@ -2,6 +2,8 @@
 import { computed, defineAsyncComponent } from 'vue'
 import { useUserStore } from '@/stores/useUserStore'
 import { UserRole } from '@/types/enums'
+import AppHeader from '@/components/AppHeader.vue'
+import AppLoadingState from '@/components/AppLoadingState.vue'
 
 const userStore = useUserStore()
 
@@ -20,6 +22,22 @@ const currentView = computed(() => {
 </script>
 
 <template>
-    <component :is="currentView" v-if="currentView" />
-    <div v-else>Loading dashboard...</div>
+    <AppLoadingState :show="!currentView" message="Wczytywanie panelu..." />
+    <main v-if="currentView" class="main">
+        <AppHeader />
+        <component :is="currentView" />
+    </main>
 </template>
+
+<style scoped>
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main > * {
+    width: 100%;
+    max-width: var(--content-max-width);
+}
+</style>
