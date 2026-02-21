@@ -5,7 +5,7 @@ import { UserRole } from '@/types/enums'
 import AppHeader from '@/components/AppHeader.vue'
 import AppLoadingState from '@/components/AppLoadingState.vue'
 
-const userStore = useUserStore()
+const { role } = useUserStore()
 
 const StudentDashboard = defineAsyncComponent(
     () => import('@/views/student/StudentDashboardView.vue'),
@@ -15,8 +15,8 @@ const LecturerDashboard = defineAsyncComponent(
 )
 
 const currentView = computed(() => {
-    if (userStore.role === UserRole.Teacher) return LecturerDashboard
-    if (userStore.role === UserRole.Student) return StudentDashboard
+    if (role === UserRole.Teacher) return LecturerDashboard
+    if (role === UserRole.Student) return StudentDashboard
     return null
 })
 </script>
@@ -24,7 +24,7 @@ const currentView = computed(() => {
 <template>
     <AppLoadingState :show="!currentView" message="Wczytywanie panelu..." />
     <main v-if="currentView" class="main">
-        <AppHeader />
+        <AppHeader :role="role" />
         <component :is="currentView" />
     </main>
 </template>
