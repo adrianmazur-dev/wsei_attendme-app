@@ -33,6 +33,10 @@ export function useSessions() {
         }
     }
 
+    function getSessionById(sessionId: number) {
+        return sessions.value.find((s) => s.courseSessionId === sessionId) || null
+    }
+
     function openSession(session: AttendmeSchemas['CourseSessionListItem']) {
         router.push({
             name: 'student-session-details',
@@ -40,5 +44,5 @@ export function useSessions() {
         })
     }
 
-    return { isLoading, sessions, fetchSessions, openSession }
+    return { isLoading, sessions, fetchSessions, getSessionById, openSession }
 }

@@ -20,3 +20,9 @@ body,
 :root {
     --content-max-width: 1000px;
 }
+
+.container {
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}

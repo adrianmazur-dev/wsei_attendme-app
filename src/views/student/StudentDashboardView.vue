@@ -6,14 +6,16 @@ import { useSessions } from '@/composables/useSessions'
 import AppLoadingState from '@/components/AppLoadingState.vue'
 import { useUserStore } from '@/stores/useUserStore'
 
+const userStore = useUserStore()
 const { sessions, isLoading, fetchSessions, openSession } = useSessions()
-const { role } = useUserStore()
 
-if (role) onMounted(() => fetchSessions(role))
+onMounted(() => {
+    if (userStore.role) fetchSessions(userStore.role)
+})
 </script>
 
 <template>
-    <main>
+    <main class="container">
         <AppLoadingState :show="isLoading" message="Pobieranie listy zajęć..." />
 
         <div v-if="!sessions.length" class="state-center">

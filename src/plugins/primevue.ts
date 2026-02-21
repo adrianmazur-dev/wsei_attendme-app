@@ -3,6 +3,7 @@ import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/material'
 import ToastService from 'primevue/toastservice'
 import Toast from 'primevue/toast'
+import 'primeicons/primeicons.css'
 
 export function setupPrimeVue(app: App) {
     app.use(PrimeVue, {
