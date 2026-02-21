@@ -11,11 +11,11 @@ const StudentDashboard = defineAsyncComponent(
     () => import('@/views/student/StudentDashboardView.vue'),
 )
 const LecturerDashboard = defineAsyncComponent(
-    () => import('@/views/lecturer/LecturerDashboardView.vue'),
+    () => import('@/views/teacher/TeacherDashboardView.vue'),
 )
 
 const currentView = computed(() => {
-    if (userStore.role === UserRole.Lecturer) return LecturerDashboard
+    if (userStore.role === UserRole.Teacher) return LecturerDashboard
     if (userStore.role === UserRole.Student) return StudentDashboard
     return null
 })

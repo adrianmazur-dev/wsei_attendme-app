@@ -4,9 +4,12 @@ import Tag from 'primevue/tag'
 import { formatDate, formatDayTimeRange } from '@/utils/date'
 import { useSessions } from '@/composables/useSessions'
 import AppLoadingState from '@/components/AppLoadingState.vue'
+import { useUserStore } from '@/stores/useUserStore'
 
 const { sessions, isLoading, fetchSessions } = useSessions()
-onMounted(fetchSessions)
+const { role } = useUserStore()
+
+if (role) onMounted(() => fetchSessions(role))
 </script>
 
 <template>

@@ -13,7 +13,7 @@ export const useUserStore = defineStore('user', () => {
     const role = computed<UserRole | null>(() => {
         if (!userData.value) return null
         if (userData.value.isStudent) return UserRole.Student
-        if (userData.value.isTeacher) return UserRole.Lecturer
+        if (userData.value.isTeacher) return UserRole.Teacher
         return null
     })
 

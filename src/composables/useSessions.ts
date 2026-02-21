@@ -1,23 +1,29 @@
 import { ref } from 'vue'
 import { attendmeClient, type AttendmeSchemas } from '@/backend'
+import { UserRole } from '@/types/enums'
 
 export function useSessions() {
     const isLoading = ref(false)
     const sessions = ref<AttendmeSchemas['CourseSessionListItem'][]>([])
 
-    async function fetchSessions(page: number = 1, size: number = 9999) {
+    async function fetchSessions(role: UserRole, page: number = 1, size: number = 9999) {
         isLoading.value = true
 
         try {
-            const { data } = await attendmeClient.send(
-                attendmeClient.POST('/course/student/sessions/get', {
-                    body: {
-                        pageNumber: page,
-                        pageSize: size,
-                    },
-                }),
-            )
-            sessions.value = data.items
+            const requests = {
+                [UserRole.Student]: () =>
+                    attendmeClient.POST('/course/student/sessions/get', {
+                        body: { pageNumber: page, pageSize: size },
+                    }),
+                [UserRole.Teacher]: () =>
+                    attendmeClient.POST('/course/teacher/sessions/get', {
+                        body: { pageNumber: page, pageSize: size },
+                    }),
+            }
+
+            const { data } = await attendmeClient.send(requests[role]())
+
+            sessions.value = data?.items ?? []
         } catch {
             sessions.value = []
         } finally {
@@ -25,9 +31,5 @@ export function useSessions() {
         }
     }
 
-    return {
-        isLoading,
-        sessions,
-        fetchSessions,
-    }
+    return { isLoading, sessions, fetchSessions }
 }
