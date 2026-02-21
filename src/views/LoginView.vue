@@ -27,7 +27,7 @@ const handleLogin = async () => {
     <div class="login-wrapper">
         <div class="login-card">
             <div class="login-logo">
-                <img src="@/assets/images/logo-light.png" alt="Logo" />
+                <img src="@/assets/images/logo.png" alt="Logo" />
             </div>
 
             <form class="login-form" @submit.prevent="handleLogin">

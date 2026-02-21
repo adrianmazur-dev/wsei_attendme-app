@@ -5,7 +5,7 @@ import Avatar from 'primevue/avatar'
 <template>
     <header class="header">
         <div class="header-left">
-            <img src="@/assets/images/logo-light.png" alt="logo" />
+            <img src="@/assets/images/logo.png" alt="logo" />
         </div>
         <div class="header-right">
             <Avatar shape="circle" />
