@@ -14,5 +14,9 @@ export default defineConfig({
         },
     },
 
+    server: {
+        host: true,
+    },
+
     plugins: [vue(), vueDevTools(), githubPagesSpa()],
 })

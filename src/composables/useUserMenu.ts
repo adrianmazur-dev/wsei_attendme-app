@@ -3,11 +3,14 @@ import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/useUserStore'
 import { useAuthStore } from '@/stores/useAuthStore'
 import { notify } from '@/utils/toast'
+import { UserRole } from '@/types/enums'
+import { useDeviceStore } from '@/stores/useDeviceStore'
 
 export function useUserMenu() {
     const router = useRouter()
     const userStore = useUserStore()
     const authStore = useAuthStore()
+    const deviceStore = useDeviceStore()
 
     const menu = ref<{ toggle: (e: Event) => void } | null>(null)
 
@@ -15,6 +18,13 @@ export function useUserMenu() {
         {
             label: userName.value,
             items: [
+                {
+                    label: 'Rejestruj obecność',
+                    visible: userStore.role === UserRole.Student && deviceStore.isRegistered,
+                    command: () => {
+                        router.push('/student/ticket/show')
+                    },
+                },
                 {
                     label: 'Wyloguj się',
                     command: () => {

@@ -6,23 +6,39 @@ import { useSessions } from '@/composables/useSessions'
 import AppLoadingState from '@/components/AppLoadingState.vue'
 import { useUserStore } from '@/stores/useUserStore'
 import type { AttendmeSchemas } from '@/backend'
+import { getDateRange, useSessionFilters } from '@/composables/useSessionFilters'
 
 const userStore = useUserStore()
+const { selectedTimeFilter, searchText } = useSessionFilters()
 const { isLoading, getFilteredSessions, openTeacherSession } = useSessions()
 const sessions = ref<AttendmeSchemas['CourseSessionListItem'][]>([])
 
-onMounted(async () => {
+async function fetchSessions() {
     if (userStore.role) {
         sessions.value = await getFilteredSessions(userStore.role, {
             pageNumber: 1,
             pageSize: 100,
+            filters: {
+                search: searchText.value || undefined,
+                ...getDateRange(selectedTimeFilter.value),
+            },
         })
     }
+}
+
+onMounted(async () => {
+    await fetchSessions()
 })
 </script>
 
 <template>
     <main class="container">
+        <SessionFiltersPanel
+            v-model:time-filter="selectedTimeFilter"
+            v-model:search="searchText"
+            @change="fetchSessions"
+        />
+
         <AppLoadingState :show="isLoading" message="Pobieranie listy zajęć..." />
 
         <div v-if="!sessions.length" class="state-center">

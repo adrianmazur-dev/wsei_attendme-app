@@ -23,7 +23,7 @@ export const errorMiddleware: Middleware = {
     },
 
     async onError({ error }) {
-        return new ApiError(null, `Fetch error occurred`, error)
+        throw new ApiError(null, `Fetch error occurred`, error)
     },
 }
 

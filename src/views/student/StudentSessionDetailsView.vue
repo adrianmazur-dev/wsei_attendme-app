@@ -9,6 +9,7 @@ import ProgressBar from 'primevue/progressbar'
 import { Tag } from 'primevue'
 import Button from 'primevue/button'
 import type { StudentSessionItem } from '@/types/sessions'
+import { ApiError } from '@/types/errors'
 
 const sessions = ref<StudentSessionItem[]>([])
 
@@ -38,7 +39,11 @@ const currentSession = computed(() => {
 
 onMounted(async () => {
     if (userStore.role) {
-        sessions.value = await getStudentSessions(courseGroupId.value)
+        try {
+            sessions.value = await getStudentSessions(courseGroupId.value)
+        } catch (e) {
+            if (e instanceof ApiError) e.dispatchToast()
+        }
     }
 })
 </script>
