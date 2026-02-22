@@ -8,7 +8,7 @@ import { useUserStore } from '@/stores/useUserStore'
 import type { AttendmeSchemas } from '@/backend'
 
 const userStore = useUserStore()
-const { isLoading, getFilteredSessions, openStudentSession } = useSessions()
+const { isLoading, getFilteredSessions, openTeacherSession } = useSessions()
 const sessions = ref<AttendmeSchemas['CourseSessionListItem'][]>([])
 
 onMounted(async () => {
@@ -34,7 +34,7 @@ onMounted(async () => {
                 class="session-item"
                 v-for="s in sessions"
                 :key="s.courseSessionId"
-                @click="openStudentSession(s)"
+                @click="openTeacherSession(s)"
             >
                 <div class="session-item__left">
                     <Tag
@@ -45,6 +45,7 @@ onMounted(async () => {
                     <span class="session-date">{{ formatDate(s.dateStart) }}</span>
                 </div>
                 <div class="session-item__right">
+                    <span class="session-group">{{ s.courseGroupName }}</span>
                     <span class="session-location">{{ s.locationName }}</span>
                 </div>
             </li>

@@ -1,0 +1,49 @@
+.sessions-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--p-surface-200);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.session-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: var(--p-surface-0);
+    border-bottom: 1px solid var(--p-surface-100);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.session-item:hover,
+.session-item:focus {
+    background: var(--p-surface-50);
+}
+
+.session-item__left,
+.session-item__right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.session-name {
+    font-weight: 600;
+}
+
+.p-tag.session-meta-tag {
+    font-size: 0.7rem;
+    align-self: flex-start;
+    background: var(--p-surface-100);
+    color: var(--p-text-muted-color);
+}
+
+.session-date,
+.session-location,
+.session-group {
+    font-size: 0.8rem;
+    color: var(--p-text-muted-color);
+}

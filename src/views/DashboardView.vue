@@ -2,24 +2,42 @@
 import { computed, defineAsyncComponent } from 'vue'
 import { useUserStore } from '@/stores/useUserStore'
 import { UserRole } from '@/types/enums'
+import AppHeader from '@/components/AppHeader.vue'
+import AppLoadingState from '@/components/AppLoadingState.vue'
 
-const userStore = useUserStore()
+const { role } = useUserStore()
 
 const StudentDashboard = defineAsyncComponent(
     () => import('@/views/student/StudentDashboardView.vue'),
 )
 const LecturerDashboard = defineAsyncComponent(
-    () => import('@/views/lecturer/LecturerDashboardView.vue'),
+    () => import('@/views/teacher/TeacherDashboardView.vue'),
 )
 
 const currentView = computed(() => {
-    if (userStore.role === UserRole.Lecturer) return LecturerDashboard
-    if (userStore.role === UserRole.Student) return StudentDashboard
+    if (role === UserRole.Teacher) return LecturerDashboard
+    if (role === UserRole.Student) return StudentDashboard
     return null
 })
 </script>
 
 <template>
-    <component :is="currentView" v-if="currentView" />
-    <div v-else>Loading dashboard...</div>
+    <AppLoadingState :show="!currentView" message="Wczytywanie panelu..." />
+    <main v-if="currentView" class="main">
+        <AppHeader :role="role" />
+        <component :is="currentView" />
+    </main>
 </template>
+
+<style scoped>
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main > * {
+    width: 100%;
+    max-width: var(--content-max-width);
+}
+</style>
