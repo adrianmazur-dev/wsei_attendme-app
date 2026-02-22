@@ -2,16 +2,12 @@ import { useAuthStore } from '@/stores/useAuthStore'
 import { useUserStore } from '@/stores/useUserStore'
 import { createRouter, createWebHistory } from 'vue-router'
 
-const LoginView = () => import('@/views/LoginView.vue')
-const DashboardView = () => import('@/views/DashboardView.vue')
-const StudentSessionDetailsView = () => import('@/views/student/StudentSessionDetailsView.vue')
-
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/login',
-            component: LoginView,
+            component: () => import('@/views/LoginView.vue'),
             meta: {},
             beforeEnter: () => {
                 const authStore = useAuthStore()
@@ -27,14 +23,26 @@ const router = createRouter({
         },
         {
             path: '/dashboard',
-            component: DashboardView,
+            component: () => import('@/views/DashboardView.vue'),
             meta: { requiresAuth: true },
         },
         {
             path: '/student/session/:courseGroupId/:sessionId',
             name: 'student-session-details',
-            component: StudentSessionDetailsView,
+            component: () => import('@/views/student/StudentSessionDetailsView.vue'),
             meta: { requiresAuth: true },
+        },
+        {
+            path: '/student/ticket/show',
+            name: 'student-ticket-show',
+            component: () => import('@/views/student/StudentTicketShowView.vue'),
+            meta: { requiresAuth: true },
+        },
+        {
+            path: '/student/device/register/:token?',
+            name: 'student-device-register',
+            component: () => import('@/views/student/StudentDeviceRegisterView.vue'),
+            meta: {},
         },
         {
             path: '/teacher/session/:courseGroupId/:sessionId',

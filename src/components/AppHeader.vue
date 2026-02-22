@@ -4,7 +4,10 @@ import Avatar from 'primevue/avatar'
 import Tag from 'primevue/tag'
 import Button from 'primevue/button'
 import { useUserMenu } from '@/composables/useUserMenu'
-import type { UserRole } from '@/types/enums'
+import { UserRole } from '@/types/enums'
+import { useDeviceStore } from '@/stores/useDeviceStore'
+
+const deviceStore = useDeviceStore()
 
 defineProps<{
     role: UserRole | null

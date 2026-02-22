@@ -1,5 +1,5 @@
 // Clients
-export { attendmeClient } from './attendme/client'
+export { attendmeClient, attendmeDeviceClient } from './attendme/client'
 
 // Attendme API
 import type { paths as AttendmePaths, components as AttendmeComponents } from './attendme/schema'
