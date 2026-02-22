@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { useTickets } from '@/composables/useTickets'
 import { onMounted } from 'vue'
-import AppLoadingState from '@/components/AppLoadingState.vue'
-import Button from 'primevue/button'
 
 const { isLoading, token, fetchTicket } = useTickets()
 onMounted(async () => {
