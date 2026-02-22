@@ -2,6 +2,7 @@ import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/useUserStore'
 import { useAuthStore } from '@/stores/useAuthStore'
+import { notify } from '@/utils/toast'
 
 export function useUserMenu() {
     const router = useRouter()
@@ -15,10 +16,11 @@ export function useUserMenu() {
             label: userName.value,
             items: [
                 {
-                    label: 'Sign out',
+                    label: 'Wyloguj się',
                     command: () => {
                         authStore.logout()
                         userStore.clearUserData()
+                        notify.success('Wylogowano pomyślnie')
                         router.push('/login')
                     },
                 },

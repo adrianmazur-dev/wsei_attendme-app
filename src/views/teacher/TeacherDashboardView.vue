@@ -1,16 +1,23 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import Tag from 'primevue/tag'
 import { formatDate, formatDayTimeRange } from '@/utils/date'
 import { useSessions } from '@/composables/useSessions'
 import AppLoadingState from '@/components/AppLoadingState.vue'
 import { useUserStore } from '@/stores/useUserStore'
+import type { AttendmeSchemas } from '@/backend'
 
 const userStore = useUserStore()
-const { sessions, isLoading, fetchSessions } = useSessions()
+const { isLoading, getFilteredSessions } = useSessions()
+const sessions = ref<AttendmeSchemas['CourseSessionListItem'][]>([])
 
-onMounted(() => {
-    if (userStore.role) fetchSessions(userStore.role)
+onMounted(async () => {
+    if (userStore.role) {
+        sessions.value = await getFilteredSessions(userStore.role, {
+            pageNumber: 1,
+            pageSize: 100,
+        })
+    }
 })
 </script>
 
@@ -19,7 +26,7 @@ onMounted(() => {
         <AppLoadingState :show="isLoading" message="Pobieranie listy zajęć..." />
 
         <div v-if="!sessions.length" class="state-center">
-            <p>There are no sessions to display.</p>
+            <p>Nie ma żadnych sesji do wyświetlenia.</p>
         </div>
 
         <ul v-else class="sessions-list">

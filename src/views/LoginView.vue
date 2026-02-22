@@ -13,12 +13,12 @@ const password = ref('')
 
 const handleLogin = async () => {
     if (!loginName.value || !password.value) {
-        notify.error('Please enter both username and password', 'Login Failed')
+        notify.error('Proszę wypełnić wszystkie pola', 'Błąd logowania')
         return
     }
 
     await authStore.userLogin(loginName.value, password.value)
-    notify.success('Logged in successfully')
+    notify.success('Zalogowano pomyślnie')
     router.push('dashboard')
 }
 </script>
@@ -32,24 +32,24 @@ const handleLogin = async () => {
 
             <form class="login-form" @submit.prevent="handleLogin">
                 <div class="login-field">
-                    <label for="username">Username</label>
+                    <label for="username">Nazwa użytkownika</label>
                     <InputText
                         id="username"
                         v-model="loginName"
                         class="w-full"
-                        placeholder="Enter your username"
+                        placeholder="Wprowadź nazwę użytkownika"
                     />
                 </div>
 
                 <div class="login-field">
-                    <label for="password">Password</label>
+                    <label for="password">Hasło</label>
                     <Password
                         id="password"
                         v-model="password"
                         :feedback="false"
                         toggleMask
                         class="w-full"
-                        placeholder="Enter your password"
+                        placeholder="Wprowadź hasło"
                     />
                 </div>
 

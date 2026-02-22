@@ -3,38 +3,70 @@ import { attendmeClient, type AttendmeSchemas } from '@/backend'
 import { useRouter } from 'vue-router'
 import { UserRole } from '@/types/enums'
 
+export type CourseSessionItem = AttendmeSchemas['CourseSessionListItem'] & {
+    isAttended?: boolean
+}
+
 export function useSessions() {
     const router = useRouter()
     const isLoading = ref(false)
-    const sessions = ref<AttendmeSchemas['CourseSessionListItem'][]>([])
 
-    async function fetchSessions(role: UserRole, page: number = 1, size: number = 9999) {
+    async function getFilteredSessions(
+        role: UserRole,
+        params: AttendmeSchemas['CourseSessionListFiltersPagedListParams'],
+    ): Promise<AttendmeSchemas['CourseSessionListItem'][]> {
         isLoading.value = true
 
         try {
             const requests = {
                 [UserRole.Student]: () =>
                     attendmeClient.POST('/course/student/sessions/get', {
-                        body: { pageNumber: page, pageSize: size },
+                        body: params,
                     }),
                 [UserRole.Teacher]: () =>
                     attendmeClient.POST('/course/teacher/sessions/get', {
-                        body: { pageNumber: page, pageSize: size },
+                        body: params,
                     }),
             }
 
             const { data } = await attendmeClient.send(requests[role]())
-
-            sessions.value = data?.items ?? []
-        } catch {
-            sessions.value = []
+            return data?.items ?? []
         } finally {
             isLoading.value = false
         }
     }
 
-    function getSessionById(sessionId: number) {
-        return sessions.value.find((s) => s.courseSessionId === sessionId) || null
+    async function getStudentSessions(courseGroupId: number): Promise<CourseSessionItem[]> {
+        isLoading.value = true
+
+        try {
+            const { data: sessionsData } = await attendmeClient.send(
+                attendmeClient.GET('/course/student/group/sessions/get', {
+                    params: {
+                        query: { courseGroupId },
+                    },
+                }),
+            )
+
+            const { data: attendanceData } = await attendmeClient.send(
+                attendmeClient.GET('/course/student/attendance/get', {
+                    params: {
+                        query: { courseGroupId },
+                    },
+                }),
+            )
+
+            const attendedSessionIds = new Set(
+                attendanceData?.map((item) => item.courseSessionId) ?? [],
+            )
+
+            return (sessionsData ?? []).map((session) => ({
+                ...session,
+                isAttended: attendedSessionIds.has(session.courseSessionId),
+            }))
+        } finally {
+            isLoading.value = false
+        }
     }
 
     function openSession(session: AttendmeSchemas['CourseSessionListItem']) {
@@ -44,5 +76,5 @@ export function useSessions() {
         })
     }
 
-    return { isLoading, sessions, fetchSessions, getSessionById, openSession }
+    return { isLoading, getFilteredSessions, getStudentSessions, openSession }
 }
