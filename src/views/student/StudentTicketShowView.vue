@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useTickets } from '@/composables/useTickets'
 import { onMounted } from 'vue'
+import Button from 'primevue/button'
 
-const { isLoading, token, fetchTicket } = useTickets()
+const { isLoading, token, error, fetchTicket } = useTickets()
 onMounted(async () => {
     await fetchTicket()
 })
@@ -26,6 +27,11 @@ onMounted(async () => {
                 <p>W razie wątpliwości poproś osobę prowadzącą zajęcia o pomoc.</p>
             </div>
         </template>
+
+        <div v-else-if="error" class="state-center">
+            <p>{{ error }}</p>
+            <Button label="Spróbuj ponownie" @click="fetchTicket()" />
+        </div>
 
         <div v-else-if="!isLoading" class="state-center">
             <p>Nie udało się wygenerować kodu QR.</p>

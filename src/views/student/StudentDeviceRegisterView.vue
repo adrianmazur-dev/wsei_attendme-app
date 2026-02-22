@@ -18,6 +18,7 @@ const deviceName = ref<string>('')
 const firstName = ref<string>('')
 const lastName = ref<string>('')
 const albumNumber = ref<number>()
+const isLoading = ref(false)
 
 const handleRegister = async () => {
     if (!deviceName.value || !firstName.value || !lastName.value || !albumNumber.value) {
@@ -30,21 +31,30 @@ const handleRegister = async () => {
         return
     }
 
-    await deviceStore.registerDevice(
-        registrationToken.value!,
-        albumNumber.value,
-        deviceName.value,
-        firstName.value,
-        lastName.value,
-    )
-
-    notify.success('Urządzenie zarejestrowane pomyślnie')
-    router.push('dashboard')
+    isLoading.value = true
+    try {
+        await deviceStore.registerDevice(
+            registrationToken.value,
+            albumNumber.value,
+            deviceName.value,
+            firstName.value,
+            lastName.value,
+        )
+        notify.success('Urządzenie zarejestrowane pomyślnie')
+        router.push('/')
+    } catch {
+        notify.error(
+            'Rejestracja nie powiodła się. Sprawdź token i spróbuj ponownie.',
+            'Błąd rejestracji',
+        )
+    } finally {
+        isLoading.value = false
+    }
 }
 </script>
 
 <template>
-    <div v-if="deviceStore.token" class="state-center">
+    <div v-if="deviceStore.isRegistered" class="state-center">
         <h2>Urządzenie zarejestrowane</h2>
         <p>Twoje urządzenie zostało pomyślnie zarejestrowane.</p>
         <Button label="Przejdź do dashboardu" @click="$router.push('/')" />
@@ -108,7 +118,7 @@ const handleRegister = async () => {
                     />
                 </div>
 
-                <Button type="submit" label="Zarejestruj" />
+                <Button type="submit" label="Zarejestruj" :loading="isLoading" />
             </form>
         </div>
     </div>

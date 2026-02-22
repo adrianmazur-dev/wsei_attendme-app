@@ -1,9 +1,9 @@
 import type { AttendmeSchemas } from '@/backend'
 
 export type StudentSessionItem = AttendmeSchemas['CourseSessionListItem'] & {
-    isAttended?: boolean
+    isAttended: boolean
 }
 
 export type TeacherSessionItem = AttendmeSchemas['CourseSessionListItem'] & {
-    attendanceList?: AttendmeSchemas['CourseSessionAttendanceRecord'][]
+    attendanceList: AttendmeSchemas['CourseSessionAttendanceRecord'][]
 }

@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/useAuthStore'
 import { notify } from '@/utils/toast'
+import { ApiError } from '@/types/errors'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import Button from 'primevue/button'
@@ -10,6 +11,7 @@ import router from '@/router'
 const authStore = useAuthStore()
 const loginName = ref('')
 const password = ref('')
+const isLoading = ref(false)
 
 const handleLogin = async () => {
     if (!loginName.value || !password.value) {
@@ -17,9 +19,16 @@ const handleLogin = async () => {
         return
     }
 
-    await authStore.userLogin(loginName.value, password.value)
-    notify.success('Zalogowano pomyślnie')
-    router.push('dashboard')
+    isLoading.value = true
+    try {
+        await authStore.userLogin(loginName.value, password.value)
+        notify.success('Zalogowano pomyślnie')
+        router.push('dashboard')
+    } catch (e) {
+        if (e instanceof ApiError) e.dispatchToast()
+    } finally {
+        isLoading.value = false
+    }
 }
 </script>
 
@@ -53,7 +62,12 @@ const handleLogin = async () => {
                     />
                 </div>
 
-                <Button type="submit" label="Login" class="w-full login-submit" />
+                <Button
+                    type="submit"
+                    label="Login"
+                    class="w-full login-submit"
+                    :loading="isLoading"
+                />
             </form>
         </div>
     </div>

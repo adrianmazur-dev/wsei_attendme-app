@@ -10,12 +10,7 @@ export const useDeviceStore = defineStore(
 
         const isRegistered = computed(() => {
             if (!token.value || !expires.value) return false
-            const s = Date.now() < expires.value
-            console.log('Device registration status:', s, {
-                token: token.value,
-                expires: expires.value,
-            })
-            return s
+            return Date.now() < expires.value
         })
 
         async function registerDevice(

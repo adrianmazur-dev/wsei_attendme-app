@@ -1,6 +1,7 @@
 import { useAuthStore } from '@/stores/useAuthStore'
 import { useUserStore } from '@/stores/useUserStore'
 import { createRouter, createWebHistory } from 'vue-router'
+import { ApiError } from '@/types/errors'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -62,9 +63,16 @@ router.beforeEach(async (to) => {
             authStore.logout()
             userStore.clearUserData()
             return '/login'
-        } else {
-            const userStore = useUserStore()
+        }
+
+        try {
             await userStore.fetchUserData()
+        } catch (e) {
+            if (e instanceof ApiError) {
+                authStore.logout()
+                userStore.clearUserData()
+                return '/login'
+            }
         }
     }
 

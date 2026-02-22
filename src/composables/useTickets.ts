@@ -5,11 +5,17 @@ export function useTickets() {
     const isLoading = ref(false)
     const token = ref<string | null>(null)
     const expires = ref<Date | null>(null)
+    const error = ref<string | null>(null)
 
     let refreshTimeout: ReturnType<typeof setTimeout> | null = null
 
     async function fetchTicket() {
+        if (refreshTimeout) {
+            clearTimeout(refreshTimeout)
+            refreshTimeout = null
+        }
         isLoading.value = true
+        error.value = null
 
         try {
             const { data } = await attendmeDeviceClient.send(
@@ -21,9 +27,9 @@ export function useTickets() {
 
             if (expires.value) {
                 refreshTicket(expires.value)
-            } else {
-                refreshTicket(new Date(Date.now() + 2 * 1000)) // refresh every 2 seconds
             }
+        } catch {
+            error.value = 'Nie udało się pobrać kodu QR'
         } finally {
             isLoading.value = false
         }
@@ -48,6 +54,7 @@ export function useTickets() {
         isLoading,
         token,
         expires,
+        error,
         fetchTicket,
     }
 }

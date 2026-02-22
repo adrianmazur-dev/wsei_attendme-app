@@ -11,10 +11,11 @@ import { type TeacherSessionItem } from '@/types/sessions'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import type { AttendmeSchemas } from '@/backend'
+import { ApiError } from '@/types/errors'
 
 const route = useRoute()
 const userStore = useUserStore()
-const { isLoading, getTeacherSession } = useSessions()
+const { isLoading, getTeacherSession, toggleSessionAttendance } = useSessions()
 
 const sessionId = computed(() => Number(route.params.sessionId))
 
@@ -24,7 +25,7 @@ async function toggleAttendance(record: AttendmeSchemas['CourseSessionAttendance
     if (!currentSession.value) return
 
     try {
-        await useSessions().toggleSessionAttendance(
+        await toggleSessionAttendance(
             record.attenderUserId!,
             record.courseSessionId!,
             !record.wasUserPresent,
@@ -32,13 +33,17 @@ async function toggleAttendance(record: AttendmeSchemas['CourseSessionAttendance
 
         currentSession.value = await getTeacherSession(sessionId.value)
     } catch (error) {
-        console.error('Nie można zmienić statusu obecności:', error)
+        if (error instanceof ApiError) error.dispatchToast()
     }
 }
 
 onMounted(async () => {
     if (userStore.role) {
-        currentSession.value = await getTeacherSession(sessionId.value)
+        try {
+            currentSession.value = await getTeacherSession(sessionId.value)
+        } catch (e) {
+            if (e instanceof ApiError) e.dispatchToast()
+        }
     }
 })
 </script>
@@ -81,6 +86,10 @@ onMounted(async () => {
                             <label>Lokalizacja</label>
                             <span>{{ currentSession.locationName }}</span>
                         </div>
+                    </div>
+
+                    <div class="info-span-item">
+                        <!-- TODO: scanner -->
                     </div>
                 </div>
             </div>
