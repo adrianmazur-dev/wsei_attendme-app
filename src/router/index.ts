@@ -36,6 +36,12 @@ const router = createRouter({
             component: StudentSessionDetailsView,
             meta: { requiresAuth: true },
         },
+        {
+            path: '/teacher/session/:courseGroupId/:sessionId',
+            name: 'teacher-session-details',
+            component: () => import('@/views/teacher/TeacherSessionDetailsView.vue'),
+            meta: { requiresAuth: true },
+        },
     ],
 })
 

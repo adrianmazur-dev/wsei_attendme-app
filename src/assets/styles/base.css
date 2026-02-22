@@ -19,6 +19,10 @@ body,
 
 :root {
     --content-max-width: 1000px;
+
+    /* Colors for buttons/attendance statuses tec. */
+    --custom-ok-color: var(--p-green-400);
+    --custom-not-ok-color: var(--p-red-400);
 }
 
 .container {

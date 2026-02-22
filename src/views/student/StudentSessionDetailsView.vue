@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { useSessions, type CourseSessionItem } from '@/composables/useSessions'
+import { useSessions } from '@/composables/useSessions'
 import { useUserStore } from '@/stores/useUserStore'
 import { formatDate, formatTimeRange } from '@/utils/date'
 import AppLoadingState from '@/components/AppLoadingState.vue'
 import ProgressBar from 'primevue/progressbar'
 import { Tag } from 'primevue'
 import Button from 'primevue/button'
+import type { StudentSessionItem } from '@/types/sessions'
 
-const sessions = ref<CourseSessionItem[]>([])
+const sessions = ref<StudentSessionItem[]>([])
 
 const route = useRoute()
 const userStore = useUserStore()
@@ -27,6 +28,7 @@ const currentSession = computed(() => {
     const attendedPast = past.filter((s) => s.isAttended)
 
     const frequency = past.length ? Math.round((attendedPast.length / past.length) * 100) : 0
+
     const progress = sessions.value.length
         ? Math.round((past.length / sessions.value.length) * 100)
         : 0
@@ -81,10 +83,15 @@ onMounted(async () => {
                         </div>
                     </div>
 
-                    <div class="status-item">
+                    <div class="info-span-item">
                         <label>Obecność:</label>
                         <Tag
-                            :severity="currentSession.isAttended ? 'success' : 'danger'"
+                            :class="[
+                                'attendance-status',
+                                currentSession.isAttended
+                                    ? 'attendance-status__present'
+                                    : 'attendance-status__absent',
+                            ]"
                             :value="currentSession.isAttended ? 'OBECNY' : 'BRAK'"
                         />
                     </div>
@@ -95,14 +102,20 @@ onMounted(async () => {
                 <div class="stat-box">
                     <div class="stat-header">
                         <span class="stat-label">Frekwencja dotychczasowa</span>
-                        <span class="stat-value">{{ currentSession?.frequency }}%</span>
+                        <span class="stat-value"
+                            >({{ Math.round((sessions.length * currentSession.frequency) / 100) }} z
+                            {{ sessions.length }}) {{ currentSession?.frequency }}%</span
+                        >
                     </div>
                     <ProgressBar :value="currentSession?.frequency || 0" :show-value="false" />
                 </div>
                 <div class="stat-box">
                     <div class="stat-header">
                         <span class="stat-label">Zaawansowanie kursu</span>
-                        <span class="stat-value">{{ currentSession?.progress }}%</span>
+                        <span class="stat-value"
+                            >({{ Math.round((sessions.length * currentSession.progress) / 100) }} z
+                            {{ sessions.length }}) {{ currentSession?.progress }}%</span
+                        >
                     </div>
                     <ProgressBar :value="currentSession?.progress || 0" :show-value="false" />
                 </div>
@@ -116,72 +129,8 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.session-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-}
-
-:deep(.p-tag) {
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-}
-
-.title-group h1 {
-    font-size: 1.75rem;
-}
-
-/* Info Card */
-.info-card {
-    border: 1px solid var(--p-surface-200);
-    border-radius: 10px;
-    padding: 2rem;
-    margin-bottom: 1rem;
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: repeat(3, auto);
-    gap: 1rem;
-    align-items: center;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.info-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.info-text label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--p-text-muted-color);
-}
-
-.status-item {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-left: 2rem;
-    border-left: 1px solid var(--p-surface-100);
-}
-
-.status-item label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--p-text-muted-color);
+:deep .p-tag {
+    padding: 1rem 1.5rem;
 }
 
 /* Stats */

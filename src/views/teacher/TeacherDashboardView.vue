@@ -8,7 +8,7 @@ import { useUserStore } from '@/stores/useUserStore'
 import type { AttendmeSchemas } from '@/backend'
 
 const userStore = useUserStore()
-const { isLoading, getFilteredSessions } = useSessions()
+const { isLoading, getFilteredSessions, openTeacherSession } = useSessions()
 const sessions = ref<AttendmeSchemas['CourseSessionListItem'][]>([])
 
 onMounted(async () => {
@@ -30,7 +30,12 @@ onMounted(async () => {
         </div>
 
         <ul v-else class="sessions-list">
-            <li v-for="s in sessions" :key="s.courseSessionId" class="session-item">
+            <li
+                class="session-item"
+                v-for="s in sessions"
+                :key="s.courseSessionId"
+                @click="openTeacherSession(s)"
+            >
                 <div class="session-item__left">
                     <Tag
                         :value="formatDayTimeRange(s.dateStart, s.dateEnd)"

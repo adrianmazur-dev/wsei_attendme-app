@@ -2,10 +2,7 @@ import { ref } from 'vue'
 import { attendmeClient, type AttendmeSchemas } from '@/backend'
 import { useRouter } from 'vue-router'
 import { UserRole } from '@/types/enums'
-
-export type CourseSessionItem = AttendmeSchemas['CourseSessionListItem'] & {
-    isAttended?: boolean
-}
+import type { StudentSessionItem, TeacherSessionItem } from '@/types/sessions'
 
 export function useSessions() {
     const router = useRouter()
@@ -36,7 +33,7 @@ export function useSessions() {
         }
     }
 
-    async function getStudentSessions(courseGroupId: number): Promise<CourseSessionItem[]> {
+    async function getStudentSessions(courseGroupId: number): Promise<StudentSessionItem[]> {
         isLoading.value = true
 
         try {
@@ -69,12 +66,76 @@ export function useSessions() {
         }
     }
 
-    function openSession(session: AttendmeSchemas['CourseSessionListItem']) {
+    async function getTeacherSession(sessionId: number): Promise<TeacherSessionItem> {
+        isLoading.value = true
+
+        try {
+            const { data: sessionData } = await attendmeClient.send(
+                attendmeClient.GET('/course/teacher/session/get', {
+                    params: { query: { sessionId: sessionId } },
+                }),
+            )
+
+            const { data: attendanceData } = await attendmeClient.send(
+                attendmeClient.GET('/course/session/attendance-list/get', {
+                    params: { query: { sessionId: sessionId } },
+                }),
+            )
+
+            return {
+                ...sessionData,
+                attendanceList: attendanceData,
+            }
+        } finally {
+            isLoading.value = false
+        }
+    }
+
+    async function toggleSessionAttendance(
+        attenderId: number,
+        sessionId: number,
+        shouldAttend: boolean,
+    ) {
+        isLoading.value = true
+
+        try {
+            await attendmeClient.send(
+                attendmeClient.GET('/course/session/attendance/toggle', {
+                    params: {
+                        query: {
+                            courseSessionId: sessionId,
+                            attendingUserId: attenderId,
+                            addOrRemove: shouldAttend,
+                        },
+                    },
+                }),
+            )
+        } finally {
+            isLoading.value = false
+        }
+    }
+
+    function openStudentSession(session: AttendmeSchemas['CourseSessionListItem']) {
         router.push({
             name: 'student-session-details',
             params: { courseGroupId: session.courseGroupId, sessionId: session.courseSessionId },
         })
     }
 
-    return { isLoading, getFilteredSessions, getStudentSessions, openSession }
+    function openTeacherSession(session: AttendmeSchemas['CourseSessionListItem']) {
+        router.push({
+            name: 'teacher-session-details',
+            params: { courseGroupId: session.courseGroupId, sessionId: session.courseSessionId },
+        })
+    }
+
+    return {
+        isLoading,
+        getFilteredSessions,
+        getStudentSessions,
+        toggleSessionAttendance,
+        getTeacherSession,
+        openStudentSession,
+        openTeacherSession,
+    }
 }
